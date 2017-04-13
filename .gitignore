@@ -1,0 +1,32 @@
+# Ignore OS generated files #
+.DS_Store*
+ehthumbs.db
+# Icon?
+Thumbs.db
+
+# ignore dist #
+dist/
+# Ignore node_modules #
+node_modules/
+
+# Always-ignore files and folders #
+*.diff
+*.err
+*.log
+*.orig
+*.rej
+*.swn
+*.swo
+*.swp
+._*
+*~
+
+# Ignore packages #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip

@@ -43,11 +43,11 @@ Template->new->process(
 print "Created in $filename\n";
 
 # Run the node tests
-my $run_tests = sub {
-    my @args = ('node', 'test/090_runNodeTests.js', @_);
-    system(@args) == 0 or die "Tests failed for: @args -- $?"
-};
-$run_tests->( $filename );
+# my $run_tests = sub {
+#     my @args = ('node', 'test/090_runNodeTests.js', @_);
+#     system(@args) == 0 or die "Tests failed for: @args -- $?"
+# };
+# $run_tests->( $filename );
 
 # Try an ugly version...
 my $ugly_filename = $filename;
@@ -55,7 +55,7 @@ $ugly_filename =~ s/\.js$/_ugly.js/;
 my @uglify = ('uglifyjs', '-o', $ugly_filename, $filename);
 system( @uglify ) == 0 or die "Uglify failed for: @uglify -- $?";
 print "Uglified version in $ugly_filename\n";
-$run_tests->( $ugly_filename );
+# $run_tests->( $ugly_filename );
 
 # Add both to dist
 print "Removing contents of dist\n";

@@ -62,7 +62,11 @@ atoms - An array of strings, representing the street address. Could be empty. ["
 
 ****
 
-[![Build Status](https://secure.travis-ci.org/sheriff/ziprip.png)](http://travis-ci.org/sheriff/ziprip)
+## DEVELOPMENT
+
+* Install the perl template module and JSON::XS module.( `sudo cpan Template` and `sudo cpan JSON::XS` for mac )
+* Install uglify-js
+* Run `perl scripts/build.pl`
+
 
 *ziprip* is released under the [MIT license](https://github.com/sheriff/ziprip/blob/master/LICENSE.txt/), because all of its external dependencies use it. That, kids, is the magic of open source, or something.
-
