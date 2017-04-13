@@ -3,7 +3,7 @@ var US_STATES = '(Chicago,?|Houston,?|Philadelphia,?|Phoenix,?|Alabama,?|Alaska,
 var postcodes = [
     { "country": "UK", "one_only": true,  "regex_string":'\\b([a-z]\\d\\s\\d[a-z][a-z]|[a-z]\\d[a-z]\\s\\d[a-z][a-z]|[a-z]\\d\\d\\s\\d[a-z][a-z]|[a-z]\\d\\d[a-z]\\s\\d[a-z][a-z]|[a-z][a-z]\\d\\s\\d[a-z][a-z]|[a-z][a-z]\\d[a-z]\\s\\d[a-z][a-z]|[a-z][a-z]\\d\\d\\s\\d[a-z][a-z])\\b' },
     { "country": "Canada", "one_only": true, "regex_string": '\\b([ABCEGHJKLMNPRSTVXY]\\d[ABCEGHJKLMNPRSTVWXYZ]) ?(\\d[ABCEGHJKLMNPRSTVWXYZ]\\d)\\b'},
-    { "country": "US", "one_only": false, "regex_string":'\\b('+ US_STATES + '\\W*\\s+\\d{5}(-\\d{4})?)\\b' },
+    { "country": "US", "one_only": false, "regex_string":'\\b('+ US_STATES + '\\s*\\W*\\s*\\d{5}(-?\\d{4})?)\\b' },
     { "country": "US", "one_only": false, "regex_string":'\\b(\\d{5}(-\\d{4})?\\s*\\w+\\s*,\\s*)' + US_STATES + '\\b' }
 ];
 
