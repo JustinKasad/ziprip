@@ -3,8 +3,8 @@ var US_STATES = '(Chicago,?|Houston,?|Philadelphia,?|Phoenix,?|Alabama,?|Alaska,
 var postcodes = [
     { "country": "UK", "one_only": true,  "regex_string":'\\b([a-z]\\d\\s\\d[a-z][a-z]|[a-z]\\d[a-z]\\s\\d[a-z][a-z]|[a-z]\\d\\d\\s\\d[a-z][a-z]|[a-z]\\d\\d[a-z]\\s\\d[a-z][a-z]|[a-z][a-z]\\d\\s\\d[a-z][a-z]|[a-z][a-z]\\d[a-z]\\s\\d[a-z][a-z]|[a-z][a-z]\\d\\d\\s\\d[a-z][a-z])\\b' },
     { "country": "Canada", "one_only": true, "regex_string": '\\b([ABCEGHJKLMNPRSTVXY]\\d[ABCEGHJKLMNPRSTVWXYZ]) ?(\\d[ABCEGHJKLMNPRSTVWXYZ]\\d)\\b'},
-    { "country": "US", "one_only": false, "regex_string":'\\b('+ US_STATES + '\\s*\\W*\\s*\\d{5}(-?\\d{4})?)\\b' },
-    { "country": "US", "one_only": false, "regex_string":'\\b(\\d{5}(-\\d{4})?\\s*\\w+\\s*,\\s*)' + US_STATES + '\\b' }
+    { "country": "US", "one_only": false, "regex_string":'\\b('+ US_STATES + '\\s*\\d{5}(-?y\\d{4})?)\\b' },
+    { "country": "USA", "one_only": false, "regex_string":'\\b(\\d{5}(-\\d{4})?\\s*\\w+\\s*,\\s*)' + US_STATES + '\\b' }
 ];
 
 
@@ -25,7 +25,6 @@ exports.addressFromString = function ( toolkit, text ) {
 
     // Attempt to split incoming text in to paragraphs
     var blocks = text.split(/\n\s*\n/);
-
     // In our first attempt, we pull out strings that end with postcodes, and
     // all that came before it in the block. So start with the Cartesian Product
     // of blocks and postcode types...
@@ -35,7 +34,6 @@ exports.addressFromString = function ( toolkit, text ) {
 
         for (var ii = 0; ii < postcodes.length; ii++) {
             var country = postcodes[ii];
-
             // Do we match some stuff and then a postcode? Add some padding to
             // our block so we'll always have a leading block if we wanted one
             var padded = '  ' + block;
